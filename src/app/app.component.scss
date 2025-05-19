@@ -6,7 +6,6 @@
 }
 
 :host-context(.dark) {
-//   background-color: #121212;
   color: #f0f0f0;
 }
 
@@ -15,10 +14,9 @@
   color: white;
 }
 
-.cursorcus{
-    cursor: url("/assets/images/cursorbig46.png") 0 0, auto;
+.cursorcus {
+  cursor: url("/assets/images/cursorbig46.png") 0 0, auto;
 }
-
 
 .cursorcus p,
 .cursorcus span,
@@ -47,11 +45,12 @@
   user-select: none;
   font-size: 12px;
   gap: 4px;
-  width: 164px;
-  height: 124px;
+  width: 100%;
+  min-height: 120px;
   background: white;
   transition: border-color 0.3s, color 0.3s;
-   mat-icon{
+
+  mat-icon {
     height: 35px !important;
     width: 33px !important;
   }
@@ -96,7 +95,8 @@
   background-color: #001f7e;
   opacity: 1;
 }
+
 ::ng-deep .mat-drawer-backdrop.mat-drawer-shown {
-    visibility: hidden !important;
-    background-color:transparent !important;
+  visibility: hidden !important;
+  background-color: transparent !important;
 }

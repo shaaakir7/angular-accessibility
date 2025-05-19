@@ -7,7 +7,8 @@
   </mat-toolbar>
 
   <mat-drawer-container class="h-screen">
-    <mat-drawer #drawer mode="over" position="end" class="w-2/5 bg-white dark:bg-gray-900 p-4" ><!--  [disableClose]="true"-->
+    <mat-drawer #drawer mode="over" opened="true" position="end"
+      class="w-full sm:w-2/3 md:w-3/4 lg:w-2/5 bg-white dark:bg-gray-900 p-4">
       <div class="flex justify-between items-center mb-4">
         <h3 class="text-lg font-bold text-gray-800 dark:text-gray-100">Accessibility Menu</h3>
         <button mat-icon-button (click)="drawer.toggle()">
@@ -15,7 +16,9 @@
         </button>
       </div>
 
-      <div class="grid grid-cols-3 gap-3">
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+        <!-- Individual Tiles -->
+        <!-- (all buttons unchanged, just included in responsive grid) -->
 
         <!-- Text To Speech -->
         <button class="tile" [class.active]="settings.textToSpeech" (click)="toggleSetting('textToSpeech')">
@@ -24,7 +27,7 @@
           <div *ngIf="settings.textToSpeech" class="checkmark">&#10003;</div>
         </button>
 
-        <!-- Bigger Text with 4 step lines -->
+        <!-- Bigger Text -->
         <button class="tile multi-step" [class.active]="biggerTextSize > 0" (click)="biggerText()">
           <mat-icon>format_size</mat-icon>
           <span>Bigger Text</span>
@@ -34,7 +37,7 @@
           <div *ngIf="biggerTextSize > 0" class="checkmark">&#10003;</div>
         </button>
 
-        <!-- Smaller Text with 4 step lines -->
+        <!-- Smaller Text -->
         <button class="tile multi-step" [class.active]="smallerTextSize > 0" (click)="smallerText()">
           <mat-icon>text_fields</mat-icon>
           <span>Small Text</span>
@@ -44,7 +47,7 @@
           <div *ngIf="smallerTextSize > 0" class="checkmark">&#10003;</div>
         </button>
 
-        <!-- Line Height with 3 step lines -->
+        <!-- Line Height -->
         <button class="tile multi-step" [class.active]="lineHeightLevel > 0" (click)="lineHeight()">
           <mat-icon>format_line_spacing</mat-icon>
           <span>Line Height</span>
@@ -61,7 +64,7 @@
           <div *ngIf="settings.highlightLinks" class="checkmark">&#10003;</div>
         </button>
 
-        <!-- Text Spacing with 3 step lines -->
+        <!-- Text Spacing -->
         <button class="tile multi-step" [class.active]="textSpacingLevel > 0" (click)="textSpacing()">
           <mat-icon class="-rotate-90">format_line_spacing</mat-icon>
           <span>Text Spacing</span>
@@ -84,44 +87,38 @@
           <span>Light-Dark</span>
           <div *ngIf="settings.darkMode" class="checkmark">&#10003;</div>
         </button>
-
-        <!-- Invert Colors -->
-        <!-- <button class="tile" [class.active]="settings.invertColors" (click)="toggleSetting('invertColors')">
-          <mat-icon>invert_colors</mat-icon>
-          <span>Invert Colors</span>
-          <div *ngIf="settings.invertColors" class="checkmark">&#10003;</div>
-        </button> -->
-
       </div>
 
       <div class="mt-5 flex justify-center">
-        <button class="w-full p-5 m-5 bg-gray-500 rounded text-white dark:bg-slate-50 dark:text-black" aria-label="Reset All Settings" tabindex="0" (click)="resetAll()" >
-           Reset All Settings
+        <button class="w-full p-4 sm:p-5 m-2 sm:m-5 bg-gray-500 rounded text-white dark:bg-slate-50 dark:text-black"
+          aria-label="Reset All Settings" tabindex="0" (click)="resetAll()">
+          Reset All Settings
         </button>
       </div>
     </mat-drawer>
 
     <mat-drawer-content [ngClass]="computeClass()" class="transition-all duration-300 ease-in-out p-4 dark:bg-gray-700">
-      <!-- Content here -->
-      <div>
-        <div>
-          <img src="assets/images/tenor.gif" class="w-1/6" style="transform: rotate(270deg);" alt="arrow pointing toward icon" aria-label="Arrow pointing toward icon" />
-          <h2>Click the accessibility icon to view the accessibility options </h2>
-        </div>
-        <p tabindex="0" aria-label="Descriptive text for screen readers" class="dark:text-gray-200">
-          Click me and I will be read aloud.
-        </p>
-
-        <p class="text-black dark:text-gray-200">
-          This content changes based on theme
-        </p>
-
-        <a href="#" class="underline text-blue-600 hover:text-blue-800 dark:text-yellow-200">sample link</a><br><br>
-        <span class="dark:text-gray-200">Hey! Hi this is my portfolio:</span> <br><br>
-
-        <a href="https://projport.vercel.app/" class="underline text-blue-600 hover:text-blue-800 dark:text-yellow-200">MY PORTFOLIO</a><br><br>
-        <a href="https://github.com/shaaakir7" class="underline text-blue-600 hover:text-blue-800 dark:text-yellow-200">Click here to view my GIT profile</a><br>
+      <div class="flex flex-col sm:flex-row items-center gap-4">
+        <img src="assets/images/tenor.gif" class="w-16 sm:w-24 transform rotate-[270deg]"
+          alt="arrow pointing toward icon" aria-label="Arrow pointing toward icon" />
+        <h2 class="dark:text-white text-center sm:text-left">Click the accessibility icon to view the accessibility options</h2>
       </div>
+
+      <p tabindex="0" aria-label="Descriptive text for screen readers" class="dark:text-gray-200 mt-4">
+        Click me and I will be read aloud.
+      </p>
+
+      <p class="text-black dark:text-gray-200">
+        This content changes based on theme
+      </p>
+
+    <a href="#" class="underline text-blue-600 hover:text-blue-800 dark:text-yellow-200">sample link</a><br><br>
+    <span class="dark:text-gray-200" >Hey! Hi this is my portfolio:</span> <br><br>
+    
+    <a href="https://projport.vercel.app/" class="underline text-blue-600 hover:text-blue-800 dark:text-yellow-200" target="_blank">MY
+      PORTFOLIO</a><br><br>
+    <a href="https://github.com/shaaakir7" class="underline text-blue-600 hover:text-blue-800 dark:text-yellow-200" target="_blank">Click
+      here to view my GIT profile</a><br>
     </mat-drawer-content>
   </mat-drawer-container>
 </div>
