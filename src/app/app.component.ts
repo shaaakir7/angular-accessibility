@@ -106,7 +106,7 @@ export class AppComponent {
 
       setTimeout(() => {
         const readableElements = document.querySelectorAll(
-          'p, h1, h2, h3, h4, h5, h6, button, a, li, span'
+          'p, h1, h2, h3, h4, h5, h6, button, a, li, span,img'
         );
         readableElements.forEach((el: Element) => {
           el.addEventListener('click', this.readTextOnClick);
@@ -115,7 +115,7 @@ export class AppComponent {
     } else {
       speechSynthesis.cancel();
       const readableElements = document.querySelectorAll(
-        'p, h1, h2, h3, h4, h5, h6, button, a, li, span'
+        'p, h1, h2, h3, h4, h5, h6, button, a, li, span,img'
       );
       readableElements.forEach((el: Element) => {
         el.removeEventListener('click', this.readTextOnClick);
