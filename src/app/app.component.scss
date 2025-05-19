@@ -1,0 +1,102 @@
+.highlight-links a {
+  background-color: yellow;
+  color: blue !important;
+  padding: 0.1rem 0.25rem;
+  border-radius: 0.25rem;
+}
+
+:host-context(.dark) {
+//   background-color: #121212;
+  color: #f0f0f0;
+}
+
+:host ::ng-deep .dark .mat-toolbar {
+  background: #1e1e1e !important;
+  color: white;
+}
+
+.cursorcus{
+    cursor: url("/assets/images/cursorbig46.png") 0 0, auto;
+}
+
+
+.cursorcus p,
+.cursorcus span,
+.cursorcus h1,
+.cursorcus h2,
+.cursorcus h3,
+.cursorcus h4,
+.cursorcus h5,
+.cursorcus h6,
+.cursorcus a,
+.cursorcus li {
+  cursor: url("/assets/images/cursorbig46.png") 0 0, auto;
+}
+
+.tile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  padding: 12px 10px;
+  cursor: pointer;
+  position: relative;
+  color: #222;
+  user-select: none;
+  font-size: 12px;
+  gap: 4px;
+  width: 164px;
+  height: 124px;
+  background: white;
+  transition: border-color 0.3s, color 0.3s;
+   mat-icon{
+    height: 35px !important;
+    width: 33px !important;
+  }
+}
+
+.tile.active {
+  border-color: #001f7e;
+  color: #001f7e;
+}
+
+.tile mat-icon {
+  font-size: 28px;
+}
+
+.checkmark {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  font-weight: bold;
+  color: #001f7e;
+  font-size: 18px;
+}
+
+.multi-step .steps {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 6px;
+  width: 100%;
+}
+
+.multi-step .step {
+  height: 4px;
+  flex-grow: 1;
+  background: #ddd;
+  border-radius: 2px;
+  opacity: 0.3;
+  transition: background-color 0.3s, opacity 0.3s;
+}
+
+.multi-step .step.active {
+  background-color: #001f7e;
+  opacity: 1;
+}
+::ng-deep .mat-drawer-backdrop.mat-drawer-shown {
+    visibility: hidden !important;
+    background-color:transparent !important;
+}
